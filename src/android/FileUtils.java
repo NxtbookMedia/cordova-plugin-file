@@ -50,6 +50,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import android.util.Log;
+
 /**
  * This class provides file and directory services to JavaScript.
  */
@@ -683,6 +685,8 @@ public class FileUtils extends CordovaPlugin {
                     } else if(e instanceof JSONException ) {
                         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
                     } else if (e instanceof SecurityException) {
+                        Log.e(e.getMessage());
+
                         callbackContext.error(FileUtils.SECURITY_ERR);
                     } else {
                         e.printStackTrace();
